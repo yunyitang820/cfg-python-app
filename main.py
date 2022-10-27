@@ -1,12 +1,12 @@
 # Code First Girls: Python Session 1
 print('Hello world')
 print(50)
-print(10/3 == 10%3)
+print(10 / 3 == 10 % 3)
 
-#example of variables
-#strings 'hellow'
-#interger 100
-#double 5.5
+# example of variables
+# strings 'hellow'
+# interger 100
+# double 5.5
 
 firstname = 'Yunyi'
 lastname = 'Tang'
@@ -18,9 +18,9 @@ print(fullname)
 salary = 100
 expenses = 70
 savings = salary - expenses
-#one way
+# one way
 print('Salary : ' + str(salary))
-#another way
+# another way
 print(f'Salary : {salary}')
 
 # exercise: We want to store customer details for kate glover's shop
@@ -71,8 +71,8 @@ print("The final TOTAL value is: " + str(total))
 
 store_capacity = 5
 while store_capacity > 0:
-   print('Please come in. Spaces available: ' + str(store_capacity))
-   store_capacity =  store_capacity - 1
+    print('Please come in. Spaces available: ' + str(store_capacity))
+    store_capacity = store_capacity - 1
 print("\nPlease wait for someone to exit the store.")
 
 # Code First Girls: Python Session 3
@@ -178,12 +178,14 @@ else:
 
 # Python has a built-in library for random data
 import random
+
 random_integer = random.randint(1, 100)
 print(random_integer)
 
 # The randint() function generates a random number between two values
 # This program uses randint() to simulate dice with any number of sides
 import random
+
 sides = int(input('How many sides does the die have? '))
 random_integer = random.randint(1, sides)
 print('You rolled a {}'.format(random_integer))
@@ -202,7 +204,7 @@ name = input('What is your name? ')
 if name == 'Tara' or name == 'Tara ':
     print('Welcome Admin')
 else:
-    print('Welcome {}'.format(name)) # or print(f'Welcome {name}')
+    print('Welcome {}'.format(name))  # or print(f'Welcome {name}')
 
 # Exercise
 movies = ['pride and prejudice', 'arrival', 'twilingt', 'smile', 'interstellar']
@@ -286,7 +288,7 @@ lunchCostsThisWeek = [5, 3, 6, 2, 8, 3, 9]
 sum = 0
 for lunchCost in lunchCostsThisWeek:
     sum = sum + lunchCost
-print(sum) # or print(sum(lunchCostsThisWeek))
+print(sum)  # or print(sum(lunchCostsThisWeek))
 
 # Exercise
 person = {}
@@ -319,7 +321,7 @@ place = {
     'location': {
         'longitude': 127,
         'latitude': 63,
-        }
+    }
 }
 
 # IndexError: list index out of range
@@ -344,6 +346,7 @@ print(trees)
 
 # Random
 import random
+
 colours = ['red', 'green', 'blue']
 chosen_colour = random.choice(colours)
 print(chosen_colour)
@@ -361,5 +364,16 @@ with open('todo.txt', 'r') as todo_file:
 with open('todo.txt', 'w+') as todo_file:
     todo_file.write(todo)
 
+# Exercise 5.2: This program is supposed to read data about trees from a
+# file to find the shortest tree.
+import csv
 
+with open('trees.csv') as csv_file:
+    spreadsheet = csv.DictReader(csv_file)
+    heights = []
+    for row in spreadsheet:
+        tree_height = row['height']
+        heights.append(tree_height)
 
+shortest_height = min(heights)
+print(shortest_height)
