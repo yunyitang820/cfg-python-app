@@ -377,3 +377,17 @@ with open('trees.csv') as csv_file:
 
 shortest_height = min(heights)
 print(shortest_height)
+
+# API
+import requests
+from pprint import pprint
+
+pokemon_number = input("What is the Pokemon's ID? ")
+
+url = 'https://pokeapi.co/api/v2/pokemon/{}/'.format(pokemon_number)
+
+response = requests.get(url)
+print(response)
+
+pokemon = response.json()
+pprint(pokemon)
