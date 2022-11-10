@@ -1,4 +1,4 @@
-# Code First Girls: Python Session 1
+# Code First Girls: Python Session 1 
 print('Hello world')
 print(50)
 print(10 / 3 == 10 % 3)
