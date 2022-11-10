@@ -16,7 +16,7 @@
 # search for “cheese”, the url would look like this:
 # https://api.edamam.com/search?q=cheese&app_id=ch37j44&app_key=a58hia
 
-# Required Tasks
+# Required Tasks 
 # These are the required tasks for this project. You should aim to complete these tasks before
 # adding your own ideas to the project.
 # 1. Read the Edamam API documentation ★
