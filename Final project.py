@@ -1,4 +1,4 @@
-# Option [2]
+# Option [2] 
 # Project Brief: Search
 # In this project you'll create a program to search for recipes based on an ingredient. The standard
 # project uses the Edamam Recipe API, but can be changed to use a different API after completing
