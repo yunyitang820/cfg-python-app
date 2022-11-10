@@ -55,22 +55,36 @@
 import requests
 def recipe_search(ingredient):
     # Register to get an APP ID and key https://developer.edamam.com/
-    app_id = ''
-    app_key = ''
-    result = requests.get(
-'https://api.edamam.com/search?q={}&app_id={}&app_key={}'.format(ingredient, app_id, app_key)
+    app_id = '7ae3a3e9'
+    app_key = '62aa8e5382f9b077225d833f60da616a'
+    recipe_result = requests.get(
+    'https://api.edamam.com/search?q={}&app_id={}&app_key={}'.format(ingredient, app_id, app_key)
     )
-    data = result.json()
+    data = recipe_result.json()
     return data['hits']
+
+# def nutrition_analysis(body):
+#     # Register to get an APP ID and key https://developer.edamam.com/
+#     app_id = '04b19de6'
+#     app_key = '6fe105bc8843ae297bc0ed45f5b41ce0'
+#     nutrition_result = requests.get(
+#     'https://api.edamam.com/search?q={}&app_id={}&app_key={}'.format(body, app_id, app_key)
+#     )
+#     data = nutrition_result.json()
+#     return data['hits']
 
 def run():
     ingredient = input('Enter an ingredient: ')
-    results = recipe_search(ingredient)
-    for result in results:
+
+    recipe_result = recipe_search(ingredient)
+
+    for result in recipe_result:
         recipe = result['recipe']
 
-        print(recipe['label'])
+        print(recipe['label'] + ':')
         print(recipe['uri'])
+        for ingrdt in recipe['ingredientLines']:
+            print(ingrdt)
         print()
 
 run()
