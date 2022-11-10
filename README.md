@@ -3,7 +3,7 @@ A beginner-friendly course to help students learn the fundamentals of programmin
 Build and deploy your first web application with us using this high level programming language! 
 You’ll be well equipped to start work on apps and back-end coding at the course end.
 
-## Syllabus
+## Syllabus 
 
 * Module 1: Python Basics: Data Types and Variables
 * Module 2: Problem Solving: Input, Loops and Functions with Turtle
