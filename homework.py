@@ -1,4 +1,4 @@
-# Code First Girls: Python Session 1
+# Code First Girls: Python Session 1 
 # Question 1
 # I am building some very high quality chairs and need exactly four nails for each chair.
 # I've written a program to calculate how many nails I need to buy to build these chairs.
