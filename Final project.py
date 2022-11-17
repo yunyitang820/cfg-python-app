@@ -1,6 +1,6 @@
 # Option [2] 
 # Project Brief: Search
-# In this project you'll create a program to search for recipes based on an ingredient. The standard
+# In this project you'll create a program to search for recipes.txt based on an ingredient. The standard
 # project uses the Edamam Recipe API, but can be changed to use a different API after completing
 # the required tasks.
 # You will not need any additional knowledge beyond what is covered in this course to complete this
@@ -24,8 +24,8 @@
 # 2. Ask the user to enter an ingredient that they want to search for
 # 3. Create a function that makes a request to the Edamam API with the required ingredient as
 # part of the search query (also included your Application ID and Application Key
-# 4. Get the returned recipes from the API response
-# 5. Display the recipes for each search result
+# 4. Get the returned recipes.txt from the API response
+# 5. Display the recipes.txt for each search result
 
 # Ideas for Extending the Project
 # Here are a few ideas for extending the project beyond the required tasks. These ideas are just
@@ -53,15 +53,42 @@
 # code for guidance if you are finding it difficult to complete the required tasks for this project.
 
 import requests
+
 def recipe_search(ingredient):
     # Register to get an APP ID and key https://developer.edamam.com/
     app_id = '7ae3a3e9'
     app_key = '62aa8e5382f9b077225d833f60da616a'
     recipe_result = requests.get(
-    'https://api.edamam.com/search?q={}&app_id={}&app_key={}'.format(ingredient, app_id, app_key)
+        'https://api.edamam.com/search?q={}&app_id={}&app_key={}'.format(ingredient, app_id, app_key)
     )
     data = recipe_result.json()
     return data['hits']
+
+def run():
+    ingredient = input('Enter an ingredient: ')
+
+    recipe_result = recipe_search(ingredient)
+
+    f = open("recipes.txt", "w")
+
+    for result in recipe_result:
+        recipe = result['recipe']
+        f.write(recipe['label'] + ':' + '\n')
+        f.write(recipe['url'] + '\n')
+        print(recipe['label'] + ':')
+        print(recipe['url'])
+        for ingrdt in recipe['ingredientLines']:
+            f.write('* ' + ingrdt + '\n')
+            print('* ' + ingrdt)
+        f.write('\n')
+        print()
+
+    f.close()
+
+run()
+
+
+
 
 # def nutrition_analysis(body):
 #     # Register to get an APP ID and key https://developer.edamam.com/
@@ -72,19 +99,3 @@ def recipe_search(ingredient):
 #     )
 #     data = nutrition_result.json()
 #     return data['hits']
-
-def run():
-    ingredient = input('Enter an ingredient: ')
-
-    recipe_result = recipe_search(ingredient)
-
-    for result in recipe_result:
-        recipe = result['recipe']
-
-        print(recipe['label'] + ':')
-        print(recipe['uri'])
-        for ingrdt in recipe['ingredientLines']:
-            print(ingrdt)
-        print()
-
-run()
